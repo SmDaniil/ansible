@@ -1,0 +1,38 @@
+---
+- name: Install and configure Go 1.22.5
+  hosts: test_server
+  
+  vars_files:
+    - ../vaults/vault.yml
+
+  vars:
+    go_download_url: "https://go.dev/dl/go1.22.5.linux-amd64.tar.gz"
+    go_tar_file: "go1.22.5.linux-amd64.tar.gz"
+    go_install_path: "/usr/local/"
+    packages_dir: "{{ ansible_env.HOME }}/packages_go"
+
+  tasks:
+    - name: Create packages directory
+      file:
+        path: "{{ packages_dir }}"
+        state: directory
+
+    - name: Download go archive file 
+      get_url:
+        url: "{{ go_download_url }}"
+        dest: "{{ packages_dir }}/{{ go_tar_file }}"
+
+    - name: Unarchive
+      unarchive:
+        src: "{{ packages_dir }}/{{ go_tar_file }}"
+        dest: "{{ packages_dir }}"
+        remote_src: yes
+
+    - name: Copy Go to /usr/local
+      copy:
+        src: "{{ packages_dir }}/go"
+        dest: "{{ go_install_path }}"
+        remote_src: yes
+      become: true
+
+
