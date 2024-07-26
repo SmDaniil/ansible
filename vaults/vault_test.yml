@@ -1,4 +1,7 @@
-# ansible-create encrypt vault_test.yml
+# ansible-create create vault_test.yml - создать файл
+# ansible-create view vault_test.yml - посмотреть содержимое
+# ansible-create decrypt vault_test.yml - расшифровать
+# ansible-create encrypt vault_test.yml - зашифровать
 ansible_become_pass: <password>
 ansible_host: <IP-address>
 ansible_user: <user-name>

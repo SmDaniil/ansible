@@ -1,2 +1,3 @@
-vaults/*vault.yml
+vaults/*node.yml
 playbooks/test_pb.yml
+playbooks/example*

@@ -1,0 +1,66 @@
+---
+- name: Changing params config mediamtx
+  hosts: test-server
+  
+  vars_files:
+    - ../vaults/test-server_node.yml
+
+  vars:
+    # config_file: /etc/rss/mediamtx.yml
+    config_file: "~/ansible/ansible_test/playbooks/example.yml"
+    # params_cfg: params_cfg.yml
+
+  tasks:
+    - name: Replace param logDestinations
+      replace:
+        path: "{{ config_file }}"
+        regexp: 'logDestinations:.*'
+        replace: 'logDestinations: [file]'
+    
+    - name: Replace param log file 
+      replace:
+        path: "{{ config_file }}"
+        regexp: 'logFile:.*'
+        replace: 'logFile: /var/log/rss/mediamtx.log'
+    
+    - name: Replace param record
+      replace:
+        path: "{{ config_file }}"
+        regexp: 'record:.*'
+        replace: 'record: no'
+    
+    - name: Replace param useSrise
+      replace:
+        path: "{{ config_file }}"
+        regexp: 'useSrise:.*'
+        replace: 'useSrise: no'
+    
+    - name: Replace param api
+      replace:
+        path: "{{ config_file }}"
+        regexp: 'api:.*'
+        replace: 'api: yes'
+
+    - name: Replace param apiAddress
+      replace:
+        path: "{{ config_file }}"
+        regexp: 'apiAddress:.*'
+        replace: 'apiAddress: {{ ansible_host }}:9997'
+
+    - name: Replace param metrics
+      replace:
+        path: "{{ config_file }}"
+        regexp: 'metrics:.*'
+        replace: 'metrics: yes'
+
+    - name: Replace param metricsAddress
+      replace:
+        path: "{{ config_file }}"
+        regexp: 'metricsAddress:.*'
+        replace: 'metricsAddress: {{ ansible_host }}:9998'
+
+    - name: Replace param rtspAddress
+      replace:
+        path: "{{ config_file }}"
+        regexp: 'rtspAddress:.*'
+        replace: 'rtspAddress: {{ ansible_host }}:8554'
