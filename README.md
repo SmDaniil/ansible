@@ -25,9 +25,9 @@
 ```yml
     path: "<path to config file>"
 
-    regexp: '<parametr>:.*'
+    regexp: '<parameter>:.*'
 
-    replace: '<parametr>: <parametr value>'
+    replace: '<parameter>: <parameter value>'
 ```
 
 ## Конфиденциальность [ansible-vault]
