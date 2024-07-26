@@ -23,11 +23,11 @@
 Создаем необходимые для себя таски, изменяем параметры: 
 
 ```yml
-    path: "<Путь до конфиг файла>"
+    path: "<path to config file>"
 
-    regexp: '<параметр>:.*'
+    regexp: '<parametr>:.*'
 
-    replace: '<параметр>: <значение параметра>'
+    replace: '<parametr>: <parametr value>'
 ```
 
 ## Конфиденциальность [ansible-vault]
