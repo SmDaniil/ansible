@@ -1,3 +1,6 @@
-vaults/*node.yml
+inventory/*node
+
 playbooks/test_pb.yml
 playbooks/example*
+
+vaults/*node.yml

@@ -1,6 +1,6 @@
 ---
 - name: Install and configure Go 1.22.5
-  hosts: test_server
+  hosts: test-server
   
   vars_files:
     - ../vaults/staging_vault.yml
