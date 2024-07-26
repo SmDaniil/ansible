@@ -1,2 +1,2 @@
-vaults/
+vaults/*vault.yml
 playbooks/test_pb.yml

@@ -3,13 +3,13 @@
   hosts: test_server
   
   vars_files:
-    - ../vaults/vault.yml
+    - ../vaults/staging_vault.yml
 
   vars:
     go_download_url: "https://go.dev/dl/go1.22.5.linux-amd64.tar.gz"
     go_tar_file: "go1.22.5.linux-amd64.tar.gz"
     go_install_path: "/usr/local/"
-    packages_dir: "{{ ansible_env.HOME }}/packages_go"
+    packages_dir: "{{ ansible_env.HOME }}/packages"
 
   tasks:
     - name: Create packages directory
@@ -17,10 +17,13 @@
         path: "{{ packages_dir }}"
         state: directory
 
-    - name: Download go archive file 
-      get_url:
-        url: "{{ go_download_url }}"
-        dest: "{{ packages_dir }}/{{ go_tar_file }}"
+    - name: Download go archive file using wget
+      command: wget -O "{{ packages_dir }}/{{ go_tar_file }}" "{{ go_download_url }}"
+
+    # - name: Download go archive file 
+    #   get_url:
+    #     url: "{{ go_download_url }}"
+    #     dest: "{{ packages_dir }}/{{ go_tar_file }}"
 
     - name: Unarchive
       unarchive:
@@ -34,5 +37,3 @@
         dest: "{{ go_install_path }}"
         remote_src: yes
       become: true
-
-
