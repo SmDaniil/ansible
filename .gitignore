@@ -1,6 +1,7 @@
-inventory/*node
+#confidential data (path to ssh-key, username, become (sudo) password)
+group_vars
+host_vars
 
+#files for testing local
 playbooks/test_pb.yml
-playbooks/example*
-
-vaults/*node.yml
+playbooks/example_template.yml
