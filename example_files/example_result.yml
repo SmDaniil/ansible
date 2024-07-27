@@ -1,0 +1,9 @@
+logDestinations: [stdout]
+logFile: ./mediamtx.log
+record: yes
+useSrise: yes
+api: no
+apiAddress: IP:9997
+metrics: no
+metricsAddress: IP:999
+rtspAddress: IP:8554
