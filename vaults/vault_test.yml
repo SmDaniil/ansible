@@ -2,6 +2,9 @@
 # ansible-create view vault_test.yml - посмотреть содержимое
 # ansible-create decrypt vault_test.yml - расшифровать
 # ansible-create encrypt vault_test.yml - зашифровать
+
+# Здесь могут быть любые данные, которые необходимо зашифровать
+
 ansible_become_pass: <password>
 ansible_host: <IP-address>
 ansible_user: <user-name>
