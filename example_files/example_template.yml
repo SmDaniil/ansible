@@ -5,5 +5,5 @@ useSrise: yes
 api: no
 apiAddress: IP:9997
 metrics: no
-metricsAddress: IP:999
+metricsAddress: IP:9998
 rtspAddress: IP:8554
