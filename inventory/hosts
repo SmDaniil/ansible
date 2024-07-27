@@ -1,0 +1,12 @@
+#ip-addresses is local
+
+[ansible_master]
+deb              ansible_host=192.168.250.24
+
+[ubuntu_hosts]
+ubuntu-test      ansible_host=192.168.250.172
+ubuntu-staging   ansible_host=192.168.250.136
+
+[staging_servers:children]
+ansible_master
+ubuntu_hosts
