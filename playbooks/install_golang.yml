@@ -1,9 +1,6 @@
 ---
 - name: Install and configure Go 1.22.5
-  hosts: test-server
-  
-  vars_files:
-    - ../vaults/staging_vault.yml
+  hosts: deb
 
   vars:
     go_download_url: "https://go.dev/dl/go1.22.5.linux-amd64.tar.gz"

@@ -1,14 +1,10 @@
 ---
 - name: Changing params config mediamtx
-  hosts: test-server
+  hosts: deb
   
-  vars_files:
-    - ../vaults/test-server_node.yml
-
   vars:
     # config_file: /etc/rss/mediamtx.yml
-    config_file: "~/ansible/ansible_test/playbooks/example.yml"
-    # params_cfg: params_cfg.yml
+    config_file: "~/ansible/ansible_test/example_files/example_result.yml"
 
   tasks:
     - name: Replace param logDestinations
